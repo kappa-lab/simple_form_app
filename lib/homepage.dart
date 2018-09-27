@@ -3,10 +3,10 @@ import 'generalform.dart';
 class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);
   @override
-  _HomePageState createState() => new _HomePageState();
+  _State createState() => new _State();
 }
 
-class _HomePageState extends State<HomePage> {
+class _State extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
