@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'generalform.dart';
 class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);
   @override
@@ -47,6 +47,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   void buttonPressed() {
-    debugPrint('aaaaaaaa');
+    debugPrint('sign in');
+    Navigator.push(context, MaterialPageRoute(builder: (context) => GeneralFormPage()));
   }
 }
