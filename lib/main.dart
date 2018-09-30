@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'homepage.dart';
+import 'generalform.dart';
 
 void main() {
   runApp(new MyApp());
@@ -17,6 +18,10 @@ class MyApp extends StatelessWidget {
         canvasColor: const Color(0xFFfafafa),
       ),
       home: new HomePage(),
+      routes: {
+        '/general': (context) => GeneralFormPage()
+      }
+
     );
   }
 }

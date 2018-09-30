@@ -47,7 +47,7 @@ class _State extends State<HomePage> {
   }
 
   void buttonPressed() {
-    debugPrint('sign in');
-    Navigator.push(context, MaterialPageRoute(builder: (context) => GeneralFormPage()));
+    debugPrint('pressed sign in button');
+    Navigator.pushNamed(context, '/general');
   }
 }
