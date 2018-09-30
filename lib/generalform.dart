@@ -8,7 +8,8 @@ class GeneralFormPage extends StatefulWidget {
 
 class _State extends State<GeneralFormPage> {
   bool _agree = false;
-
+  TextEditingController _firstname;
+  TextEditingController _lastname;
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -32,6 +33,7 @@ class _State extends State<GeneralFormPage> {
                       fontFamily: "Roboto"),
                 ),
                 new TextFormField(
+                  controller: _firstname,
                   style: new TextStyle(
                       fontSize: 24.0,
                       color: const Color(0xFF000000),
@@ -50,7 +52,8 @@ class _State extends State<GeneralFormPage> {
                       fontWeight: FontWeight.w200,
                       fontFamily: "Roboto"),
                 ),
-                new TextFormField(
+                new TextField(
+                  controller: _lastname,
                   style: new TextStyle(
                       fontSize: 24.0,
                       color: const Color(0xFF000000),
@@ -76,7 +79,7 @@ class _State extends State<GeneralFormPage> {
                         height: 30.0,
                         child: new FlatButton(
                             key: null,
-                            onPressed: buttonPressed,
+                            onPressed: showDetail,
                             color: const Color(0xFFECECEC),
                             child: new Text(
                               "Show Detail",
@@ -96,7 +99,7 @@ class _State extends State<GeneralFormPage> {
                     height: 60.0,
                     child: new RaisedButton(
                         key: null,
-                        onPressed: buttonPressed,
+                        onPressed: onOkPressed,
                         color: const Color(0xFFe0e0e0),
                         child: new Text(
                           "OK",
@@ -114,7 +117,36 @@ class _State extends State<GeneralFormPage> {
     );
   }
 
-  void buttonPressed() {}
+  void showDetail() {
+    showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+              title: Text('Terms of Use'),
+              content: Text('This Application is Simple Form Application.'),
+              actions: <Widget>[
+                FlatButton(
+                  child: const Text('Decline',
+                      style: TextStyle(color: const Color(0xFF000000))),
+                  onPressed: () => Navigator.pop<bool>(context,false),
+                  color: const Color(0xFFad4526),
+                ),
+                FlatButton(
+                  child: const Text('Accept',
+                      style: TextStyle(color: const Color(0xFF000000))),
+                  onPressed: () => Navigator.pop<bool>(context,true),
+                  color: const Color(0xFF26ad63),
+                )
+              ],
+            )).then((r) => checkChanged(r));
+  }
+
+  void onOkPressed() {
+    print(_agree);
+    if (!_agree) {
+      return;
+    }
+    Navigator.pushNamed(context, '/');
+  }
 
   void checkChanged(bool value) {
     setState(() => _agree = value);
