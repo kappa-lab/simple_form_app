@@ -22,58 +22,44 @@ class _State extends State<GeneralFormPage> {
               mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                new Container(
-                    padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 20.0),
-                    // color: const Color(0xFFEEEEEE),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      mainAxisSize: MainAxisSize.max,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        new Text(
-                          'First Name',
-                          textAlign: TextAlign.left,
-                          style: new TextStyle(
-                              fontSize: 18.0,
-                              color: const Color(0xFF000000),
-                              fontWeight: FontWeight.w200,
-                              fontFamily: "Roboto"),
-                        ),
-                        new TextFormField(
-                          style: new TextStyle(
-                              fontSize: 24.0,
-                              color: const Color(0xFF000000),
-                              fontWeight: FontWeight.w200,
-                              fontFamily: "Roboto"),
-                        ),
-                      ],
-                    )),
-                new Container(
-                    padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 50.0),
-                    // color: const Color(0xFFEEEEEE),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      mainAxisSize: MainAxisSize.max,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        new Text(
-                          'Last Name',
-                          textAlign: TextAlign.left,
-                          style: new TextStyle(
-                              fontSize: 18.0,
-                              color: const Color(0xFF000000),
-                              fontWeight: FontWeight.w200,
-                              fontFamily: "Roboto"),
-                        ),
-                        new TextFormField(
-                          style: new TextStyle(
-                              fontSize: 24.0,
-                              color: const Color(0xFF000000),
-                              fontWeight: FontWeight.w200,
-                              fontFamily: "Roboto"),
-                        ),
-                      ],
-                    )),
+                new Text(
+                  'First Name',
+                  textAlign: TextAlign.left,
+                  style: new TextStyle(
+                      fontSize: 18.0,
+                      color: const Color(0xFF000000),
+                      fontWeight: FontWeight.w200,
+                      fontFamily: "Roboto"),
+                ),
+                new TextFormField(
+                  style: new TextStyle(
+                      fontSize: 24.0,
+                      color: const Color(0xFF000000),
+                      fontWeight: FontWeight.w200,
+                      fontFamily: "Roboto"),
+                ),
+                new Padding(
+                  padding: const EdgeInsets.all(20.0),
+                ),
+                new Text(
+                  'Last Name',
+                  textAlign: TextAlign.left,
+                  style: new TextStyle(
+                      fontSize: 18.0,
+                      color: const Color(0xFF000000),
+                      fontWeight: FontWeight.w200,
+                      fontFamily: "Roboto"),
+                ),
+                new TextFormField(
+                  style: new TextStyle(
+                      fontSize: 24.0,
+                      color: const Color(0xFF000000),
+                      fontWeight: FontWeight.w200,
+                      fontFamily: "Roboto"),
+                ),
+                new Padding(
+                  padding: const EdgeInsets.all(20.0),
+                ),
                 new Text(
                   "Terms of Use",
                   style: new TextStyle(
@@ -115,7 +101,7 @@ class _State extends State<GeneralFormPage> {
                         child: new Text(
                           "OK",
                           style: new TextStyle(
-                              fontSize: 12.0,
+                              fontSize: 32.0,
                               color: const Color(0xFF000000),
                               fontWeight: FontWeight.w200,
                               fontFamily: "Roboto"),
