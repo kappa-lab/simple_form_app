@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'homepage.dart';
-import 'generalform.dart';
+import './generalformpage.dart';
+import './settingpage.dart';
 
 void main() {
   runApp(new MyApp());
@@ -19,7 +20,8 @@ class MyApp extends StatelessWidget {
       ),
       home: new HomePage(),
       routes: {
-        '/general': (context) => GeneralFormPage()
+        '/general': (context) => GeneralFormPage(),
+        '/setting': (context) => SettingPage()
       }
 
     );

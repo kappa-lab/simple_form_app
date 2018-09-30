@@ -145,7 +145,7 @@ class _State extends State<GeneralFormPage> {
     if (!_agree) {
       return;
     }
-    Navigator.pushNamed(context, '/');
+    Navigator.pushNamed(context, '/setting');
   }
 
   void checkChanged(bool value) {
