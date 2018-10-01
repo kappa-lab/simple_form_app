@@ -8,8 +8,8 @@ class GeneralFormPage extends StatefulWidget {
 
 class _State extends State<GeneralFormPage> {
   bool _agree = false;
-  TextEditingController _firstname;
-  TextEditingController _lastname;
+  TextEditingController _firstname = TextEditingController();
+  TextEditingController _lastname = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -23,16 +23,8 @@ class _State extends State<GeneralFormPage> {
               mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                new Text(
-                  'First Name',
-                  textAlign: TextAlign.left,
-                  style: new TextStyle(
-                      fontSize: 18.0,
-                      color: const Color(0xFF000000),
-                      fontWeight: FontWeight.w200,
-                      fontFamily: "Roboto"),
-                ),
                 new TextFormField(
+                  decoration: InputDecoration(labelText: 'First Name'),
                   controller: _firstname,
                   style: new TextStyle(
                       fontSize: 24.0,
@@ -41,18 +33,10 @@ class _State extends State<GeneralFormPage> {
                       fontFamily: "Roboto"),
                 ),
                 new Padding(
-                  padding: const EdgeInsets.all(20.0),
+                  padding: const EdgeInsets.all(10.0),
                 ),
-                new Text(
-                  'Last Name',
-                  textAlign: TextAlign.left,
-                  style: new TextStyle(
-                      fontSize: 18.0,
-                      color: const Color(0xFF000000),
-                      fontWeight: FontWeight.w200,
-                      fontFamily: "Roboto"),
-                ),
-                new TextField(
+                new TextFormField(
+                  decoration: InputDecoration(labelText: 'Last Name'),
                   controller: _lastname,
                   style: new TextStyle(
                       fontSize: 24.0,
@@ -127,13 +111,13 @@ class _State extends State<GeneralFormPage> {
                 FlatButton(
                   child: const Text('Decline',
                       style: TextStyle(color: const Color(0xFF000000))),
-                  onPressed: () => Navigator.pop<bool>(context,false),
+                  onPressed: () => Navigator.pop<bool>(context, false),
                   color: const Color(0xFFad4526),
                 ),
                 FlatButton(
                   child: const Text('Accept',
                       style: TextStyle(color: const Color(0xFF000000))),
-                  onPressed: () => Navigator.pop<bool>(context,true),
+                  onPressed: () => Navigator.pop<bool>(context, true),
                   color: const Color(0xFF26ad63),
                 )
               ],
@@ -141,10 +125,30 @@ class _State extends State<GeneralFormPage> {
   }
 
   void onOkPressed() {
-    print(_agree);
+    var alertMsg = '';
+    print('$_firstname.text');
+
+    if (_firstname.text == '') {
+      alertMsg += '! Require first name.\n';
+    }
+    
+    if (_lastname.text == '') {
+      alertMsg += '! Require last name.\n';
+    }
+
     if (!_agree) {
+      alertMsg += '! Require Agreement.\n';
+    }
+
+    if (alertMsg != '') {
+      showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+              title: Text('Oops'),
+              content: Text(alertMsg)));
       return;
     }
+
     Navigator.pushNamed(context, '/setting');
   }
 
