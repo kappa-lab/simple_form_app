@@ -14,7 +14,7 @@ class _State extends State<GeneralFormPage> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text('App Name'),
+        title: new Text('General'),
       ),
       body: new Center(
         child: new Container(
@@ -131,7 +131,7 @@ class _State extends State<GeneralFormPage> {
     if (_firstname.text == '') {
       alertMsg += '! Require first name.\n';
     }
-    
+
     if (_lastname.text == '') {
       alertMsg += '! Require last name.\n';
     }
@@ -149,7 +149,7 @@ class _State extends State<GeneralFormPage> {
       return;
     }
 
-    Navigator.pushNamed(context, '/setting');
+    Navigator.pushNamed(context, '/setting:${_firstname.text}');
   }
 
   void checkChanged(bool value) {

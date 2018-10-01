@@ -18,13 +18,30 @@ class MyApp extends StatelessWidget {
         accentColor: const Color(0xFF2196f3),
         canvasColor: const Color(0xFFfafafa),
       ),
-      home: new HomePage(),
+      home: HomePage(),
       routes: {
         '/general': (context) => GeneralFormPage(),
-        '/setting': (context) => SettingPage()
-      }
-
+        '/setting': (context) => HomePage(),
+      },
+      onGenerateRoute: _getRoute
     );
   }
-}
 
+  Route<dynamic> _getRoute(RouteSettings settings) {
+    final List<String> path = settings.name.split('/');
+    if (path[0] != '')
+      return null;
+
+    if (path[1].startsWith('setting:')) {
+      if (path.length != 2)
+        return null;
+      final String param = path[1].replaceFirstMapped('setting:', (m)=>'');
+      return MaterialPageRoute<void>(
+        settings: settings,
+        builder: (BuildContext context) => SettingPage(firstName: param),
+      );
+    }
+    // The other paths we support are in the routes table.
+    return null;
+  }
+}
