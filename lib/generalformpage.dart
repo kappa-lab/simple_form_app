@@ -1,95 +1,94 @@
 import 'package:flutter/material.dart';
 
 class GeneralFormPage extends StatefulWidget {
-  GeneralFormPage({Key key}) : super(key: key);
+  const GeneralFormPage({Key? key}) : super(key: key);
   @override
-  _State createState() => new _State();
+  _State createState() => _State();
 }
 
 class _State extends State<GeneralFormPage> {
   bool _agree = false;
-  TextEditingController _firstname = TextEditingController();
-  TextEditingController _lastname = TextEditingController();
+  final TextEditingController _firstname = TextEditingController();
+  final TextEditingController _lastname = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
-        title: new Text('General'),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('General'),
       ),
-      body: new Center(
-        child: new Container(
-          child: new Column(
+      body: Center(
+        child: Container(
+          child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                new TextFormField(
-                  decoration: InputDecoration(labelText: 'First Name'),
+                TextFormField(
+                  decoration: const InputDecoration(labelText: 'First Name'),
                   controller: _firstname,
-                  style: new TextStyle(
+                  style: const TextStyle(
                       fontSize: 24.0,
-                      color: const Color(0xFF000000),
+                      color: Color(0xFF000000),
                       fontWeight: FontWeight.w200,
                       fontFamily: "Roboto"),
                 ),
-                new Padding(
-                  padding: const EdgeInsets.all(10.0),
+                const Padding(
+                  padding: EdgeInsets.all(10.0),
                 ),
-                new TextFormField(
-                  decoration: InputDecoration(labelText: 'Last Name'),
+                TextFormField(
+                  decoration: const InputDecoration(labelText: 'Last Name'),
                   controller: _lastname,
-                  style: new TextStyle(
+                  style: const TextStyle(
                       fontSize: 24.0,
-                      color: const Color(0xFF000000),
+                      color: Color(0xFF000000),
                       fontWeight: FontWeight.w200,
                       fontFamily: "Roboto"),
                 ),
-                new Padding(
-                  padding: const EdgeInsets.all(20.0),
+                const Padding(
+                  padding: EdgeInsets.all(20.0),
                 ),
-                new Text(
+                const Text(
                   "Terms of Use",
-                  style: new TextStyle(
+                  style: TextStyle(
                       fontSize: 24.0,
-                      color: const Color(0xFF000000),
+                      color: Color(0xFF000000),
                       fontWeight: FontWeight.w200,
                       fontFamily: "Roboto"),
                 ),
                 Row(
                   children: <Widget>[
-                    new Checkbox(
-                        key: null, onChanged: checkChanged, value: _agree),
-                    new SizedBox(
+                    Checkbox(key: null, onChanged: checkChanged, value: _agree),
+                    SizedBox(
                         height: 30.0,
-                        child: new FlatButton(
+                        child: FlatButton(
                             key: null,
                             onPressed: showDetail,
                             color: const Color(0xFFECECEC),
-                            child: new Text(
+                            child: const Text(
                               "Show Detail",
-                              style: new TextStyle(
+                              style: TextStyle(
                                   fontSize: 14.0,
-                                  color: const Color(0xFF000000),
+                                  color: Color(0xFF000000),
                                   fontWeight: FontWeight.w200,
                                   fontFamily: "Roboto"),
                             )))
                   ],
                 ),
-                new Padding(
-                  padding: const EdgeInsets.all(20.0),
+                const Padding(
+                  padding: EdgeInsets.all(20.0),
                 ),
-                new SizedBox(
+                SizedBox(
                     width: 300.0,
                     height: 60.0,
-                    child: new RaisedButton(
+                    child: RaisedButton(
                         key: null,
                         onPressed: onOkPressed,
                         color: const Color(0xFFe0e0e0),
-                        child: new Text(
+                        child: const Text(
                           "OK",
-                          style: new TextStyle(
+                          style: TextStyle(
                               fontSize: 32.0,
-                              color: const Color(0xFF000000),
+                              color: Color(0xFF000000),
                               fontWeight: FontWeight.w200,
                               fontFamily: "Roboto"),
                         ))),
@@ -105,18 +104,19 @@ class _State extends State<GeneralFormPage> {
     showDialog(
         context: context,
         builder: (context) => AlertDialog(
-              title: Text('Terms of Use'),
-              content: Text('This Application is Simple Form Application.'),
+              title: const Text('Terms of Use'),
+              content:
+                  const Text('This Application is Simple Form Application.'),
               actions: <Widget>[
                 FlatButton(
                   child: const Text('Decline',
-                      style: TextStyle(color: const Color(0xFF000000))),
+                      style: TextStyle(color: Color(0xFF000000))),
                   onPressed: () => Navigator.pop<bool>(context, false),
                   color: const Color(0xFFad4526),
                 ),
                 FlatButton(
                   child: const Text('Accept',
-                      style: TextStyle(color: const Color(0xFF000000))),
+                      style: TextStyle(color: Color(0xFF000000))),
                   onPressed: () => Navigator.pop<bool>(context, true),
                   color: const Color(0xFF26ad63),
                 )
@@ -143,16 +143,15 @@ class _State extends State<GeneralFormPage> {
     if (alertMsg != '') {
       showDialog(
           context: context,
-          builder: (context) => AlertDialog(
-              title: Text('Oops'),
-              content: Text(alertMsg)));
+          builder: (context) =>
+              AlertDialog(title: const Text('Oops'), content: Text(alertMsg)));
       return;
     }
 
     Navigator.pushNamed(context, '/setting:${_firstname.text}');
   }
 
-  void checkChanged(bool value) {
-    setState(() => _agree = value);
+  void checkChanged(bool? value) {
+    if (value != null) setState(() => _agree = value);
   }
 }
