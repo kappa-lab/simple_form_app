@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 
 class GeneralFormPage extends StatefulWidget {
@@ -122,8 +124,7 @@ class _State extends State<GeneralFormPage> {
 
   void onOkPressed() {
     var alertMsg = '';
-    print('$_firstname.text');
-
+    log('$_firstname.text');
     if (_firstname.text == '') {
       alertMsg += '! Require first name.\n';
     }
