@@ -28,10 +28,9 @@ class _State extends State<HomePage> {
                         fontWeight: FontWeight.w200,
                         fontFamily: "Roboto"),
                   ))),
-              RaisedButton(
+              ElevatedButton(
                   key: null,
                   onPressed: buttonPressed,
-                  color: const Color(0xFFe0e0e0),
                   child: const Padding(
                     padding: EdgeInsets.all(12.0),
                     child: Text("Sign In",

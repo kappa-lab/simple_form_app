@@ -17,14 +17,13 @@ class _State extends State<SettingPage> {
         appBar: AppBar(
           title: const Text('Setting'),
         ),
-        body: Container(
-            child: Text(
+        body: Text(
           "Hello $firstName!",
           style: const TextStyle(
               fontSize: 60.0,
               color: Color(0xFF000000),
               fontWeight: FontWeight.w200,
               fontFamily: "Roboto"),
-        )));
+        ));
   }
 }

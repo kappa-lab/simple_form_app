@@ -60,10 +60,9 @@ class _State extends State<GeneralFormPage> {
                     Checkbox(key: null, onChanged: checkChanged, value: _agree),
                     SizedBox(
                         height: 30.0,
-                        child: FlatButton(
+                        child: TextButton(
                             key: null,
                             onPressed: showDetail,
-                            color: const Color(0xFFECECEC),
                             child: const Text(
                               "Show Detail",
                               style: TextStyle(
@@ -80,10 +79,9 @@ class _State extends State<GeneralFormPage> {
                 SizedBox(
                     width: 300.0,
                     height: 60.0,
-                    child: RaisedButton(
+                    child: ElevatedButton(
                         key: null,
                         onPressed: onOkPressed,
-                        color: const Color(0xFFe0e0e0),
                         child: const Text(
                           "OK",
                           style: TextStyle(
@@ -108,17 +106,15 @@ class _State extends State<GeneralFormPage> {
               content:
                   const Text('This Application is Simple Form Application.'),
               actions: <Widget>[
-                FlatButton(
+                TextButton(
                   child: const Text('Decline',
                       style: TextStyle(color: Color(0xFF000000))),
                   onPressed: () => Navigator.pop<bool>(context, false),
-                  color: const Color(0xFFad4526),
                 ),
-                FlatButton(
+                TextButton(
                   child: const Text('Accept',
                       style: TextStyle(color: Color(0xFF000000))),
                   onPressed: () => Navigator.pop<bool>(context, true),
-                  color: const Color(0xFF26ad63),
                 )
               ],
             )).then((r) => checkChanged(r));
