@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
 
 class SettingPage extends StatefulWidget {
-  String firstName;
-  SettingPage({Key? key, required this.firstName}) : super(key: key);
+  final String firstName;
+  const SettingPage({Key? key, required this.firstName}) : super(key: key);
+
   @override
-  _State createState() => _State(firstName);
+  _State createState() => _State();
 }
 
 class _State extends State<SettingPage> {
-  _State(this.firstName);
-  String firstName;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +16,7 @@ class _State extends State<SettingPage> {
           title: const Text('Setting'),
         ),
         body: Text(
-          "Hello $firstName!",
+          "Hello ${widget.firstName}!",
           style: const TextStyle(
               fontSize: 60.0,
               color: Color(0xFF000000),
