@@ -24,10 +24,12 @@ jobs:
           flutter-version: '2.8.1'
           channel: 'stable'
       
-      - name: Run a one-line script
-        run: |
-          echo Hello, world!
-          flutter --version
       - run: flutter pub get
       - run: flutter test
-      - run: flutter build apk
+      - run: flutter build apk --debug
+
+      - name: Archive artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: android-debug
+          path: build/app/outputs/flutter-apk/app-debug.apk

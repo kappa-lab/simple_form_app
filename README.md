@@ -1,3 +1,6 @@
+[![CI](https://github.com/kappa-lab/simple_form_app/actions/workflows/main.yml/badge.svg)](https://github.com/kappa-lab/simple_form_app/actions/workflows/main.yml)
+
+
 # simple_form_app
 
 A new Flutter project.
