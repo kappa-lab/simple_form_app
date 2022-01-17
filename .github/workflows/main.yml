@@ -19,6 +19,12 @@ jobs:
         with:
           distribution: 'zulu'
           java-version: '11'
-
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '2.8.1'
+          channel: 'stable'
+      
       - name: Run a one-line script
-        run: echo Hello, world!
+        run: |
+          echo Hello, world!
+          flutter --version
